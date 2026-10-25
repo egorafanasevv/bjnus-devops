@@ -1,0 +1,14 @@
+url-probe-1  | OK   200  0.264s https://example.com
+url-probe-1  | FAIL 404  0.235s https://example.com/no-such-page
+url-probe-1  | http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>
+url-probe-1  | FAIL   0  0.002s http://no-such-host.invalid
+url-probe-1  | http://10.255.255.1: <urlopen error timed out>
+url-probe-1  | FAIL   0  1.001s http://10.255.255.1
+url-probe-1  | OK   200  0.003s http://test-site
+url-probe-1  | OK   200  0.251s https://example.com
+url-probe-1  | FAIL 404  0.234s https://example.com/no-such-page
+url-probe-1  | http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>
+url-probe-1  | FAIL   0  0.002s http://no-such-host.invalid
+url-probe-1  | http://10.255.255.1: <urlopen error timed out>
+url-probe-1  | FAIL   0  1.002s http://10.255.255.1
+url-probe-1  | OK   200  0.001s http://test-site

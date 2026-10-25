@@ -1,0 +1,5 @@
+=== До ===
+Status=running StartedAt=2026-10-25T13:58:46.785686509Z RestartCount=0
+=== Аварийное завершение PID=80675 ===
+=== После ===
+Status=running StartedAt=2026-10-25T13:59:18.387215811Z RestartCount=1

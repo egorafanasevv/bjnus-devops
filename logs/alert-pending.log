@@ -1,0 +1,22 @@
+{
+    "status": "success",
+    "data": {
+        "resultType": "vector",
+        "result": [
+            {
+                "metric": {
+                    "__name__": "ALERTS",
+                    "alertname": "UrlProbeDown",
+                    "alertstate": "pending",
+                    "instance": "node-exporter:9100",
+                    "job": "node",
+                    "url": "http://test-site"
+                },
+                "value": [
+                    1792936823.772,
+                    "1"
+                ]
+            }
+        ]
+    }
+}

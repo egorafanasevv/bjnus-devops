@@ -1,0 +1,6 @@
+groups:
+  - name: url-probe
+    rules:
+      - alert: UrlProbeDown
+        expr: probe_success == 0
+        for: 1m

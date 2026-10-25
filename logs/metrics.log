@@ -1,0 +1,75 @@
+=== Контейнеры ===
+NAME                       IMAGE                       COMMAND                  SERVICE         CREATED          STATUS          PORTS
+bonus_hw-node-exporter-1   prom/node-exporter:v1.9.1   "/bin/node_exporter …"   node-exporter   41 minutes ago   Up 41 minutes   9100/tcp
+bonus_hw-prometheus-1      prom/prometheus:v3.5.0      "/bin/prometheus --c…"   prometheus      41 minutes ago   Up 41 minutes   127.0.0.1:9090->9090/tcp
+bonus_hw-test-site-1       nginx:alpine                "/docker-entrypoint.…"   test-site       41 minutes ago   Up 20 minutes   80/tcp
+bonus_hw-url-probe-1       url-probe:bonus             "/app/entrypoint.sh"     url-probe       36 minutes ago   Up 25 minutes   
+=== Метрики ===
+{
+    "status": "success",
+    "data": {
+        "resultType": "vector",
+        "result": [
+            {
+                "metric": {
+                    "__name__": "probe_success",
+                    "instance": "node-exporter:9100",
+                    "job": "node",
+                    "url": "http://10.255.255.1"
+                },
+                "value": [
+                    1792938260.467,
+                    "0"
+                ]
+            },
+            {
+                "metric": {
+                    "__name__": "probe_success",
+                    "instance": "node-exporter:9100",
+                    "job": "node",
+                    "url": "http://no-such-host.invalid"
+                },
+                "value": [
+                    1792938260.467,
+                    "0"
+                ]
+            },
+            {
+                "metric": {
+                    "__name__": "probe_success",
+                    "instance": "node-exporter:9100",
+                    "job": "node",
+                    "url": "http://test-site"
+                },
+                "value": [
+                    1792938260.467,
+                    "1"
+                ]
+            },
+            {
+                "metric": {
+                    "__name__": "probe_success",
+                    "instance": "node-exporter:9100",
+                    "job": "node",
+                    "url": "https://example.com"
+                },
+                "value": [
+                    1792938260.467,
+                    "1"
+                ]
+            },
+            {
+                "metric": {
+                    "__name__": "probe_success",
+                    "instance": "node-exporter:9100",
+                    "job": "node",
+                    "url": "https://example.com/no-such-page"
+                },
+                "value": [
+                    1792938260.467,
+                    "0"
+                ]
+            }
+        ]
+    }
+}

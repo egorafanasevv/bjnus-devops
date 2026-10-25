@@ -1,0 +1,28 @@
+uid=100(app) gid=101(app) groups=101(app),101(app)
+OK   200  0.262s https://example.com
+FAIL 404  0.232s https://example.com/no-such-page
+http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>
+FAIL   0  0.001s http://no-such-host.invalid
+http://10.255.255.1: <urlopen error timed out>
+FAIL   0  1.001s http://10.255.255.1
+# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0
+# TYPE probe_success gauge
+probe_success{url="https://example.com"} 1
+probe_success{url="https://example.com/no-such-page"} 0
+probe_success{url="http://no-such-host.invalid"} 0
+probe_success{url="http://10.255.255.1"} 0
+# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет
+# TYPE probe_http_status_code gauge
+probe_http_status_code{url="https://example.com"} 200
+probe_http_status_code{url="https://example.com/no-such-page"} 404
+probe_http_status_code{url="http://no-such-host.invalid"} 0
+probe_http_status_code{url="http://10.255.255.1"} 0
+# HELP probe_duration_seconds Сколько заняла проверка
+# TYPE probe_duration_seconds gauge
+probe_duration_seconds{url="https://example.com"} 0.262
+probe_duration_seconds{url="https://example.com/no-such-page"} 0.232
+probe_duration_seconds{url="http://no-such-host.invalid"} 0.001
+probe_duration_seconds{url="http://10.255.255.1"} 1.001
+# HELP probe_last_run_timestamp_seconds Время последнего запуска
+# TYPE probe_last_run_timestamp_seconds gauge
+probe_last_run_timestamp_seconds 1792935293
